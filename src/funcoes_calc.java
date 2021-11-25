@@ -4,116 +4,148 @@ public class funcoes_calc {
 
 	private static final Scanner sc = new Scanner(System.in);
 	private ComposicaoUtil util;
-	private static double resultado_total = 0;
-	
+
 	public funcoes_calc() {
 		this.util = new ComposicaoUtil();
 	}
+
 	public void Soma() {
-
-		System.out.println("Você selecinou a função de SOMA !\n");
-
-		this.util.txt("Digite \n " + " SIM - Para continuar SOMANDO. \n " + " NAO - Para encerrar a calculadora. \n ");
+		this.util.selecao_txt("SOMA!");
+		this.util.selecao_txt_SIM_OU_NAO();
 		String opcao_1 = sc.nextLine();
 
-		//
 		if (opcao_1.equalsIgnoreCase("SIM")) {
-			this.util.txt("Digite o primeiro numero: \n");
 
-			Double primeiro_input = sc.nextDouble();
-			this.util.txt("Digite o segundo numero: ");
-			Double segundo_input = sc.nextDouble();
-			resultado_total = primeiro_input + segundo_input;
-			this.util.txt("Resultado da sua SOMA é de : " + resultado_total + "\n");
-
-		} else {
-			System.out.println("Você digitou algo errado ! ");
-		}
-		
-		
-		this.util.txt("Digite \n " + " SIM - Para continuar SOMANDO. \n " + " NAO - Para encerrar a calculadora. \n ");
-		String opcao_2= sc.next();
-		
-		
-
-		if (opcao_2.equalsIgnoreCase("SIM")) {
-			while (opcao_2.equalsIgnoreCase("SIM")) {
-				this.util.txt("Digite o novo numero: \n");
-				Double n3 = sc.nextDouble();
-				double resultado = resultado_total + n3;
-				this.util.txt("Seu novo resultado é : " + resultado);
-				
-				this.util.txt("Digite \n " +
-				" SAIR - Para encerrar a calculadora. \n " + "" + " SIM - Para continuar SOMANDO.");
-				String opcao_3= sc.next();
-				
-				
-					if(opcao_3.equalsIgnoreCase("SIM")) {
-						
-						
-						} else if(opcao_3.equalsIgnoreCase("SAIR")) {
-							System.out.println("Calculadora ENCERRADA !");
-							System.exit(0);
-						}
-							else {
-								System.out.println("Você digitou algo errado !");
-							}
-
+			double numeros[] = new double[2];
+			for (int i = 0; i < numeros.length; i++) {
+				while (true) {
+					try {
+						this.util.txt("Digite o " + (i + 1) + "º valor: ");
+						numeros[i] = Double.parseDouble(sc.nextLine());
+						break;
+					} catch (NumberFormatException e) {
+						this.util.txt("Você não digitou um número válido");
+					}
+				}
 			}
-		} else if (opcao_2.equalsIgnoreCase("NÃO")) {
-			System.out.println("Calculadora ENCERRADA !");
+
+			double resultado = numeros[0] + numeros[1];
+
+			this.util.txt("A soma é " + resultado);
+
+		} else if (opcao_1.equalsIgnoreCase("NAO")) {
+			this.util.txt("Encerrando a calculadora..");
 			System.exit(0);
+		} else {
+			this.util.txt("Você digitou algo errado !!! Preste mais atenção !");
+			Soma();
 		}
-		
-		
-		
-		
-		
-		
+
 	}
 
 	public void Subtracao() {
-		this.util.txt("Digite o primeiro numero: ");
 
-		Double primeiro_input = sc.nextDouble();
+		this.util.selecao_txt("SUBTRAÇÃO!");
 
-		this.util.txt("Digite o segundo numero: ");
-		Double segundo_input = sc.nextDouble();
+		this.util.selecao_txt_SIM_OU_NAO();
+		String opcao_1 = sc.nextLine();
 
-		double Resultado = primeiro_input - segundo_input;
+		if (opcao_1.equalsIgnoreCase("SIM")) {
 
-		this.util.txt("Resultado da sua SUBTRAÇÃO é de : " + Resultado);
-		sc.close();
+			double numeros[] = new double[2];
+			for (int i = 0; i < numeros.length; i++) {
+				while (true) {
+					try {
+						System.out.println("Digite o " + (i + 1) + "º valor: ");
+						numeros[i] = Double.parseDouble(sc.nextLine());
+						break;
+					} catch (NumberFormatException e) {
+						System.out.println("Você não digitou um número válido");
+					}
+				}
+			}
+
+			double resultado = numeros[0] - numeros[1];
+
+			this.util.txt("A subtracao é " + resultado);
+
+		} else if (opcao_1.equalsIgnoreCase("NAO")) {
+			this.util.txt("Encerrando a calculadora..");
+			System.exit(0);
+		} else {
+			this.util.txt("Você digitou algo errado !!! Preste mais atenção !");
+			Subtracao();
+		}
 
 	}
 
 	public void Divisao() {
-		this.util.txt("Digite o primeiro numero: ");
 
-		Double primeiro_input = sc.nextDouble();
+		this.util.selecao_txt("DIVISÃO!");
 
-		this.util.txt("Digite o segundo numero: ");
-		Double segundo_input = sc.nextDouble();
+		this.util.selecao_txt_SIM_OU_NAO();
+		String opcao_1 = sc.nextLine();
 
-		double Resultado = primeiro_input / segundo_input;
+		if (opcao_1.equalsIgnoreCase("SIM")) {
 
-		this.util.txt("Resultado da sua DIVISÃO é de : " + Resultado);
-		sc.close();
+			double numeros[] = new double[2];
+			for (int i = 0; i < numeros.length; i++) {
+				while (true) {
+					try {
+						System.out.println("Digite o " + (i + 1) + "º valor: ");
+						numeros[i] = Double.parseDouble(sc.nextLine());
+						break;
+					} catch (NumberFormatException e) {
+						System.out.println("Você não digitou um número válido");
+					}
+				}
+			}
+
+			double resultado = numeros[0] / numeros[1];
+
+			this.util.txt("A divisão é " + resultado);
+
+		} else if (opcao_1.equalsIgnoreCase("NAO")) {
+			this.util.txt("Encerrando a calculadora..");
+			System.exit(0);
+		} else {
+			this.util.txt("Você digitou algo errado !!! Preste mais atenção !");
+			Divisao();
+		}
 
 	}
 
 	public void Multiplicacao() {
-		this.util.txt("Digite o primeiro numero: ");
+		this.util.selecao_txt("MULTIPLICAO!");
+		this.util.selecao_txt_SIM_OU_NAO();
+		String opcao_1 = sc.nextLine();
 
-		Double primeiro_input = sc.nextDouble();
+		if (opcao_1.equalsIgnoreCase("SIM")) {
 
-		this.util.txt("Digite o segundo numero: ");
-		Double segundo_input = sc.nextDouble();
+			double numeros[] = new double[2];
+			for (int i = 0; i < numeros.length; i++) {
+				while (true) {
+					try {
+						this.util.txt("Digite o " + (i + 1) + "º valor: ");
+						numeros[i] = Double.parseDouble(sc.nextLine());
+						break;
+					} catch (NumberFormatException e) {
+						this.util.txt("Você não digitou um número válido");
+					}
+				}
+			}
 
-		double Resultado = primeiro_input * segundo_input;
+			double resultado = numeros[0] - numeros[1];
 
-		this.util.txt("Resultado da sua MULTIPLICAÇÃO é de : " + Resultado);
-		sc.close();
+			this.util.txt("A multiplicação é " + resultado);
+
+		} else if (opcao_1.equalsIgnoreCase("NAO")) {
+			this.util.txt("Encerrando a calculadora..");
+			System.exit(0);
+		} else {
+			this.util.txt("Você digitou algo errado !!! Preste mais atenção !");
+			Multiplicacao();
+		}
 
 	}
 }

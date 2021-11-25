@@ -4,10 +4,10 @@ public class Base_Calculadora extends funcoes_calc {
 
 	private static final Scanner sc = new Scanner(System.in);
 
-	public Base_Calculadora() {
+	public void Executar() {
 		funcoes_calc funcoes = new funcoes_calc();
-		System.out.println("Digite o seu nome: ");
-		String nome_user = sc.next();
+		System.out.println("Digite o seu primeiro nome: ");
+		String nome_user = sc.nextLine();
 		System.out.println("Seja bem vindo a calculadora Y : " + nome_user);
 		System.out.println("Digite o numero correspondente ao tipo de calculo que deseja ! ");
 		System.out.println(" 1 - SOMA");
@@ -43,6 +43,7 @@ public class Base_Calculadora extends funcoes_calc {
 			default:	
 				System.out.println("Você digitou algo errado ! Tente novamente..");
 		}
+		
 	}
 
 }
